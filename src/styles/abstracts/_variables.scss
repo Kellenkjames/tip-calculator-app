@@ -1,6 +1,44 @@
-// ==========================
-// 🎨 Color Tokens
-// ==========================
+// =============================================
+// DESIGN TOKENS — _variables.scss
+// Tip Calculator App | Frontend Mentor
+// =============================================
+
+//
+// FONT SYSTEM
+// ---------------------------------------------
+
+$font-primary: 'Space Mono', monospace;
+$font-weight-bold: 700;
+
+// Font Sizes (REM-based)
+$text-xxl: 4.8rem; // 48px
+$text-xl: 3.2rem; // 32px
+$text-lg: 2.4rem; // 24px
+$text-md: 2rem; // 20px
+$text-sm: 1.6rem; // 16px
+$text-xs: 1.3rem; // 13px
+
+// Line Heights
+$line-height-xxl: 7.1rem; // 71px
+$line-height-xl: 4.7rem; // 47px
+$line-height-lg: 3.6rem; // 36px
+$line-height-md: 3rem; // 30px
+$line-height-sm: 2.4rem; // 24px
+$line-height-xs: 1.9rem; // 19px
+
+// Letter Spacing
+$letter-spacing-tight-xl: -0.1rem; // -1px
+$letter-spacing-tight-lg: -0.067rem; // -0.67px
+$letter-spacing-none: 0;
+
+// Optional: Fluid Typography
+$font-fluid-lg: clamp(3.2rem, 2vw + 1rem, 4.8rem);
+$font-fluid-md: clamp(2.4rem, 1.5vw + 1rem, 3.2rem);
+$font-fluid-sm: clamp(1.6rem, 1vw + 1rem, 2.4rem);
+
+//
+// COLOR PALETTE — Raw Tokens
+// ---------------------------------------------
 
 $white: #ffffff;
 $black: #000000;
@@ -21,53 +59,36 @@ $green-200: #9fe8df;
 
 $orange-400: #e17052;
 
-// -- Semantic Aliases
+//
+// COLOR ALIASES — Semantic Tokens
+// ---------------------------------------------
+
+// Primary System
 $color-primary: $green-400;
 $color-primary-dark: $green-750;
 $color-primary-deep: $green-900;
 
+// Text
 $color-text-base: $grey-500;
 $color-text-muted: $grey-400;
 $color-text-light: $grey-300;
 $color-text-invert: $white;
 
+// Backgrounds
 $color-bg: $white;
 $color-bg-muted: $grey-50;
 $color-bg-dark: $green-900;
 
+// Borders / Lines
 $color-border: $grey-200;
 
+// Actions / Accents
 $color-accent: $orange-400;
 $color-focus: $green-200;
 
-// ==========================
-// 🔤 Typography Tokens
-// ==========================
-
-$font-family-base: 'Space Mono', monospace;
-$font-weight-bold: 700;
-
-$text-xxl: 4.8rem; // 48px
-$text-xl: 3.2rem; // 32px
-$text-lg: 2.4rem; // 24px
-$text-md: 2rem; // 20px
-$text-sm: 1.6rem; // 16px
-$text-xs: 1.3rem; // 13px
-
-$line-height-xxl: 7.1rem; // 71px
-$line-height-xl: 4.7rem; // 47px
-$line-height-lg: 3.6rem; // 36px
-$line-height-md: 3rem; // 30px
-$line-height-sm: 2.4rem; // 24px
-$line-height-xs: 1.9rem; // 19px
-
-$letter-spacing-tight-xl: -0.1rem; // -1px
-$letter-spacing-tight-lg: -0.067rem; // -0.67px
-$letter-spacing-none: 0;
-
-// ==========================
-// 🧱 Spacing Tokens (8pt Grid)
-// ==========================
+//
+// SPACING SCALE (8pt Grid)
+// ---------------------------------------------
 
 $spacing-0: 0;
 $spacing-100: 0.8rem; // 8px
@@ -79,3 +100,37 @@ $spacing-1000: 8rem; // 80px
 $spacing-1200: 9.6rem; // 96px
 $spacing-1500: 12rem; // 120px
 $spacing-1600: 12.8rem; // 128px
+
+//
+// BORDER RADIUS
+// ---------------------------------------------
+
+$radius-sm: 0.4rem;
+$radius-md: 0.8rem;
+$radius-lg: 1.2rem;
+$radius-round: 50%;
+
+//
+// Z-INDEX SYSTEM
+// ---------------------------------------------
+
+$z-default: 1;
+$z-dropdown: 100;
+$z-overlay: 500;
+$z-modal: 1000;
+
+//
+// BREAKPOINTS — max-width logic
+// ---------------------------------------------
+
+$breakpoint-xl: 1440px;
+$breakpoint-lg: 1024px;
+$breakpoint-md: 768px;
+$breakpoint-sm: 375px;
+
+$breakpoints: (
+  xl: $breakpoint-xl,
+  lg: $breakpoint-lg,
+  md: $breakpoint-md,
+  sm: $breakpoint-sm,
+);
