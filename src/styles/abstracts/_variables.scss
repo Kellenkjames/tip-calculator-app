@@ -1,0 +1,81 @@
+// ==========================
+// 🎨 Color Tokens
+// ==========================
+
+$white: #ffffff;
+$black: #000000;
+
+$grey-600: #3d6666;
+$grey-550: #547878;
+$grey-500: #5e7a7d;
+$grey-400: #7f9d9f;
+$grey-300: #9ebbbd;
+$grey-200: #c5e4e7;
+$grey-50: #f3f9fa;
+
+$green-900: #00474b;
+$green-800: #085c61;
+$green-750: #0d686d;
+$green-400: #26c2ae;
+$green-200: #9fe8df;
+
+$orange-400: #e17052;
+
+// -- Semantic Aliases
+$color-primary: $green-400;
+$color-primary-dark: $green-750;
+$color-primary-deep: $green-900;
+
+$color-text-base: $grey-500;
+$color-text-muted: $grey-400;
+$color-text-light: $grey-300;
+$color-text-invert: $white;
+
+$color-bg: $white;
+$color-bg-muted: $grey-50;
+$color-bg-dark: $green-900;
+
+$color-border: $grey-200;
+
+$color-accent: $orange-400;
+$color-focus: $green-200;
+
+// ==========================
+// 🔤 Typography Tokens
+// ==========================
+
+$font-family-base: 'Space Mono', monospace;
+$font-weight-bold: 700;
+
+$text-xxl: 4.8rem; // 48px
+$text-xl: 3.2rem; // 32px
+$text-lg: 2.4rem; // 24px
+$text-md: 2rem; // 20px
+$text-sm: 1.6rem; // 16px
+$text-xs: 1.3rem; // 13px
+
+$line-height-xxl: 7.1rem; // 71px
+$line-height-xl: 4.7rem; // 47px
+$line-height-lg: 3.6rem; // 36px
+$line-height-md: 3rem; // 30px
+$line-height-sm: 2.4rem; // 24px
+$line-height-xs: 1.9rem; // 19px
+
+$letter-spacing-tight-xl: -0.1rem; // -1px
+$letter-spacing-tight-lg: -0.067rem; // -0.67px
+$letter-spacing-none: 0;
+
+// ==========================
+// 🧱 Spacing Tokens (8pt Grid)
+// ==========================
+
+$spacing-0: 0;
+$spacing-100: 0.8rem; // 8px
+$spacing-200: 1.6rem; // 16px
+$spacing-300: 2.4rem; // 24px
+$spacing-400: 3.2rem; // 32px
+$spacing-600: 4.8rem; // 48px
+$spacing-1000: 8rem; // 80px
+$spacing-1200: 9.6rem; // 96px
+$spacing-1500: 12rem; // 120px
+$spacing-1600: 12.8rem; // 128px
