@@ -1,0 +1,70 @@
+@use '../abstracts/variables' as *;
+
+// ---------------------------------------------
+// FLEXBOX UTILITIES
+// ---------------------------------------------
+
+$flex-alignments: (
+  center: center,
+  start: flex-start,
+  end: flex-end,
+  between: space-between,
+  around: space-around,
+  evenly: space-evenly,
+);
+
+// Flex row layout (horizontal)
+@mixin flex-row($justify: center, $align: center, $wrap: wrap, $gap: null) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: $wrap;
+  justify-content: map-get($flex-alignments, $justify) or $justify;
+  align-items: map-get($flex-alignments, $align) or $align;
+
+  @if $gap != null {
+    gap: $gap;
+  }
+}
+
+// Flex column layout (vertical)
+@mixin flex-column(
+  $justify: center,
+  $align: center,
+  $wrap: nowrap,
+  $gap: null
+) {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: $wrap;
+  justify-content: map-get($flex-alignments, $justify) or $justify;
+  align-items: map-get($flex-alignments, $align) or $align;
+
+  @if $gap != null {
+    gap: $gap;
+  }
+}
+
+// Shorthand centering (horizontal + vertical)
+@mixin flex-center-center {
+  @include flex-row(center, center);
+}
+
+// Horizontal: space-between | Vertical: center
+@mixin flex-space-between-center {
+  @include flex-row(between, center);
+}
+
+// ---------------------------------------------
+// MEDIA QUERY UTILITIES — max-width strategy
+// ---------------------------------------------
+
+// Usage: @include respond-to(md) { ... }
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "🚨 Unknown breakpoint: #{$breakpoint}.";
+  }
+}
