@@ -1,0 +1,23 @@
+// ---------------------------------------------
+// FONTS
+// ---------------------------------------------
+
+@font-face {
+  font-family: 'Space Mono';
+  src: url('../../assets/fonts/SpaceMono-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Optional italic style
+@font-face {
+  font-family: 'Space Mono';
+  src: url('../../assets/fonts/SpaceMono-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+// Usage:
+// font-family: 'Space Mono', monospace;
