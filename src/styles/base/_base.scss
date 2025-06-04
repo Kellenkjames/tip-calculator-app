@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as *;
+
+// ---------------------------------------------
+// BASE
+// ---------------------------------------------
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: $color-bg;
+  font-family: $font-primary;
+  font-size: $text-sm;
+  font-weight: $font-weight-bold;
+  color: $color-text-base;
+  line-height: 1.5;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
