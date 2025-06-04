@@ -3,15 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="./src/assets/images/favicon-32x32.png"
     />
-
-    <title>Frontend Mentor | Tip calculator app</title>
+    <title>Frontend Mentor | Tip Calculator App</title>
   </head>
-  <body></body>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <h1 class="app__logo"><span>spli</span><span>tter</span></h1>
+      </header>
+
+      <div class="app__content">
+        <section class="form-card">
+          <form class="form" aria-labelledby="split-form-title">
+            <h2 id="split-form-title" class="visually-hidden">
+              Tip Calculator
+            </h2>
+
+            <!-- Bill Input -->
+            <div class="form__group">
+              <label for="bill" class="form__label">Bill</label>
+              <input
+                type="text"
+                id="bill"
+                name="bill"
+                class="form__input"
+                inputmode="decimal"
+                placeholder="0"
+              />
+            </div>
+
+            <!-- Tip Selection -->
+            <div class="form__group">
+              <span class="form__label">Select Tip %</span>
+              <div class="tip-buttons">
+                <button type="button" class="tip-button">5%</button>
+                <button type="button" class="tip-button">10%</button>
+                <button type="button" class="tip-button">15%</button>
+                <button type="button" class="tip-button">25%</button>
+                <button type="button" class="tip-button">50%</button>
+                <input
+                  type="text"
+                  class="tip-button tip-button--custom"
+                  placeholder="Custom"
+                  inputmode="decimal"
+                />
+              </div>
+            </div>
+
+            <!-- Number of People -->
+            <div class="form__group">
+              <label for="people" class="form__label">Number of People</label>
+              <input
+                type="text"
+                id="people"
+                name="people"
+                class="form__input"
+                inputmode="decimal"
+                placeholder="0"
+              />
+            </div>
+          </form>
+        </section>
+
+        <!-- Results section will go here -->
+        <section class="result-card">
+          <!-- To be implemented -->
+        </section>
+      </div>
+    </main>
+  </body>
 </html>
