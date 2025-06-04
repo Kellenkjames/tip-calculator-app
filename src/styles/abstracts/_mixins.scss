@@ -1,0 +1,47 @@
+@use '../abstracts/variables' as *;
+
+// ---------------------------------------------
+// TYPOGRAPHY MIXINS — Text Presets
+// ---------------------------------------------
+
+@mixin text-preset-1 {
+  font-weight: $font-weight-bold;
+  font-size: $text-xxl;
+  line-height: $line-height-xxl;
+  letter-spacing: $letter-spacing-tight-xl;
+}
+
+@mixin text-preset-2 {
+  font-weight: $font-weight-bold;
+  font-size: $text-xl;
+  line-height: $line-height-xl;
+  letter-spacing: $letter-spacing-tight-lg;
+}
+
+@mixin text-preset-3 {
+  font-weight: $font-weight-bold;
+  font-size: $text-lg;
+  line-height: $line-height-lg;
+  letter-spacing: $letter-spacing-none;
+}
+
+@mixin text-preset-4 {
+  font-weight: $font-weight-bold;
+  font-size: $text-md;
+  line-height: $line-height-md;
+  letter-spacing: $letter-spacing-none;
+}
+
+@mixin text-preset-5 {
+  font-weight: $font-weight-bold;
+  font-size: $text-sm;
+  line-height: $line-height-sm;
+  letter-spacing: $letter-spacing-none;
+}
+
+@mixin text-preset-6 {
+  font-weight: $font-weight-bold;
+  font-size: $text-xs;
+  line-height: $line-height-xs;
+  letter-spacing: $letter-spacing-none;
+}
