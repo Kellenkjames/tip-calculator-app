@@ -3,7 +3,12 @@
 // ---------------------------------------------
 // TYPOGRAPHY MIXINS — Text Presets
 // ---------------------------------------------
+// These mixins define reusable font-size, weight,
+// line-height, and letter-spacing combinations.
+// Apply these directly to headings, inputs, labels, etc.
+// ---------------------------------------------
 
+// 🪧 Use for main app title, results display values
 @mixin text-preset-1 {
   font-weight: $font-weight-bold;
   font-size: $text-xxl;
@@ -11,6 +16,7 @@
   letter-spacing: $letter-spacing-tight-xl;
 }
 
+// 🧾 Use for section headers, primary numbers
 @mixin text-preset-2 {
   font-weight: $font-weight-bold;
   font-size: $text-xl;
@@ -18,6 +24,7 @@
   letter-spacing: $letter-spacing-tight-lg;
 }
 
+// 📊 Use for labels, custom tip input, or calculated subtotals
 @mixin text-preset-3 {
   font-weight: $font-weight-bold;
   font-size: $text-lg;
@@ -25,6 +32,7 @@
   letter-spacing: $letter-spacing-none;
 }
 
+// 📄 Use for field labels, buttons, or error messages
 @mixin text-preset-4 {
   font-weight: $font-weight-bold;
   font-size: $text-md;
@@ -32,6 +40,7 @@
   letter-spacing: $letter-spacing-none;
 }
 
+// 🔤 Use for input placeholder text, footnotes
 @mixin text-preset-5 {
   font-weight: $font-weight-bold;
   font-size: $text-sm;
@@ -39,6 +48,7 @@
   letter-spacing: $letter-spacing-none;
 }
 
+// 🧮 Use for supporting captions or hint text
 @mixin text-preset-6 {
   font-weight: $font-weight-bold;
   font-size: $text-xs;
