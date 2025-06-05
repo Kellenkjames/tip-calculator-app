@@ -33,7 +33,13 @@
     }
   }
 
+  // Bill container
   &__content {
+    background-color: $white;
+    border-radius: 2.5rem;
+    padding-block: $spacing-400;
+    padding-inline: 4rem;
+    box-shadow: 0px 3.2rem 4.3rem rgba(79, 166, 175, 0.200735);
     width: 100%;
     @include flex-space-between-center;
   }
