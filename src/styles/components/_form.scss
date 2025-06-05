@@ -8,3 +8,59 @@
 // Styles for the input form, including labels, input fields,
 // icon positioning, and error states (e.g., “Can’t be zero”).
 // ---------------------------------------------
+
+.form {
+  @include flex-column(center, start);
+  gap: 4rem;
+
+  &__group {
+    width: 100%;
+    @include flex-column(center, start);
+  }
+
+  &__label {
+    display: block;
+    width: 100%;
+    margin-bottom: $spacing-100;
+    color: $color-text-base;
+    @include text-preset-5;
+  }
+
+  &__input {
+    width: 100%;
+    padding-block: 0.6rem;
+    padding-inline: 1.813rem;
+    background-color: #f3f9fa;
+    border-radius: 0.5rem;
+    text-align: right;
+    border: none;
+    color: $color-primary-deep;
+    @include text-preset-3;
+  }
+
+  &__input-wrapper {
+    position: relative;
+    width: 100%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: $spacing-200;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1.6rem;
+      height: 1.6rem;
+      background-repeat: no-repeat;
+      background-size: contain;
+      pointer-events: none;
+    }
+
+    &--bill::before {
+      background-image: url('/src/assets/images/icon-dollar.svg');
+    }
+
+    &--people::before {
+      background-image: url('/src/assets/images/icon-person.svg');
+    }
+  }
+}

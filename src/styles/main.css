@@ -117,6 +117,69 @@ a:hover {
   text-decoration: underline;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4rem;
+}
+.form__group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+.form__label {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.8rem;
+  color: #5e7a7d;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  letter-spacing: 0;
+}
+.form__input {
+  width: 100%;
+  padding-block: 0.6rem;
+  padding-inline: 1.813rem;
+  background-color: #f3f9fa;
+  border-radius: 0.5rem;
+  text-align: right;
+  border: none;
+  color: #00474b;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+  letter-spacing: 0;
+}
+.form__input-wrapper {
+  position: relative;
+  width: 100%;
+}
+.form__input-wrapper::before {
+  content: "";
+  position: absolute;
+  left: 1.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.6rem;
+  height: 1.6rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+}
+.form__input-wrapper--bill::before {
+  background-image: url("/src/assets/images/icon-dollar.svg");
+}
+.form__input-wrapper--people::before {
+  background-image: url("/src/assets/images/icon-person.svg");
+}
+
 .app {
   margin-block: 30.4rem 23.9rem;
   margin-inline: auto;
