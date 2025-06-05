@@ -8,3 +8,33 @@
 // Used for global layout positioning and responsive spacing
 // Applies consistent max-width, padding, and vertical alignment
 // ---------------------------------------------
+
+.app {
+  margin-block: $space-304 $space-239;
+  margin-inline: auto;
+  max-width: 92rem;
+  @include flex-column(center, center);
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-1000;
+    width: 100%;
+  }
+
+  &__logo {
+    @include flex-column(center, center);
+
+    &-part {
+      font-size: 3.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      color: $grey-600;
+      display: inline-block;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    @include flex-space-between-center;
+  }
+}

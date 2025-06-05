@@ -90,6 +90,7 @@ $color-focus: $green-200;
 // SPACING SCALE (8pt Grid)
 // ---------------------------------------------
 
+// Core 8pt grid
 $spacing-0: 0;
 $spacing-100: 0.8rem; // 8px
 $spacing-200: 1.6rem; // 16px
@@ -100,6 +101,10 @@ $spacing-1000: 8rem; // 80px
 $spacing-1200: 9.6rem; // 96px
 $spacing-1500: 12rem; // 120px
 $spacing-1600: 12.8rem; // 128px
+
+// Off-grid spacing (FIGMA fidelity)
+$space-304: 30.4rem;
+$space-239: 23.9rem;
 
 //
 // BORDER RADIUS

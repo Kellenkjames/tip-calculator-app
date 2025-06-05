@@ -71,7 +71,7 @@ body {
 }
 
 body {
-  background-color: #ffffff;
+  background-color: #c5e4e7;
   font-family: "Space Mono", monospace;
   font-size: 1.6rem;
   font-weight: 700;
@@ -115,4 +115,42 @@ a {
 }
 a:hover {
   text-decoration: underline;
+}
+
+.app {
+  margin-block: 30.4rem 23.9rem;
+  margin-inline: auto;
+  max-width: 92rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.app__header {
+  text-align: center;
+  margin-bottom: 8rem;
+  width: 100%;
+}
+.app__logo {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.app__logo-part {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: #3d6666;
+  display: inline-block;
+}
+.app__content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }/*# sourceMappingURL=main.css.map */
