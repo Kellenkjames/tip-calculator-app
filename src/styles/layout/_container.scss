@@ -10,14 +10,13 @@
 // ---------------------------------------------
 
 .app {
-  margin-block: $space-304 $space-239;
   margin-inline: auto;
   max-width: 92rem;
   @include flex-column(center, center);
 
   &__header {
     text-align: center;
-    margin-bottom: $spacing-1000;
+    margin-block: $space-1630 $spacing-1100;
     width: 100%;
   }
 
