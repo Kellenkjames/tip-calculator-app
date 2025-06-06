@@ -45,8 +45,12 @@
 
             <!-- Tip Selection -->
             <div class="form__group">
-              <span class="form__label">Select Tip %</span>
-              <div class="tip-buttons">
+              <label for="tip-custom" class="form__label">Select Tip %</label>
+              <div
+                class="tip-buttons"
+                role="group"
+                aria-labelledby="tip-custom-label"
+              >
                 <button type="button" class="tip-button">5%</button>
                 <button type="button" class="tip-button">10%</button>
                 <button type="button" class="tip-button">15%</button>
@@ -54,9 +58,11 @@
                 <button type="button" class="tip-button">50%</button>
                 <input
                   type="text"
+                  id="tip-custom"
                   class="tip-button tip-button--custom"
                   placeholder="Custom"
                   inputmode="decimal"
+                  aria-label="Custom tip percentage"
                 />
               </div>
             </div>

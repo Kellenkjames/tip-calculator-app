@@ -8,3 +8,33 @@
 // Styles for tip percentage buttons and custom tip input.
 // Includes states for active, hover, and focus.
 // ---------------------------------------------
+
+.tip-buttons {
+  gap: $spacing-200;
+  @include flex-row(start);
+}
+
+.tip-button {
+  padding-inline: $spacing-200;
+  padding-block: $spacing-100;
+  background-color: $color-primary-deep;
+  border: none;
+  border-radius: 0.5rem;
+  text-align: center;
+  color: $white;
+  cursor: pointer;
+  flex: 0 0 30%;
+  max-width: 30%;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  @include text-preset-3;
+
+  &--custom {
+    background-color: $color-bg-muted;
+    color: $grey-550;
+
+    &::placeholder {
+      color: $grey-400;
+      opacity: 1;
+    }
+  }
+}

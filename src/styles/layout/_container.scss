@@ -40,6 +40,12 @@
     padding-inline: 4rem;
     box-shadow: 0px 3.2rem 4.3rem rgba(79, 166, 175, 0.200735);
     width: 100%;
+    gap: $spacing-600;
     @include flex-space-between-center;
+
+    > * {
+      flex: 1 1 47%;
+      max-width: 47%;
+    }
   }
 }

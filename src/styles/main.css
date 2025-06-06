@@ -180,6 +180,45 @@ a:hover {
   background-image: url("/src/assets/images/icon-person.svg");
 }
 
+.tip-buttons {
+  gap: 1.6rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.tip-button {
+  padding-inline: 1.6rem;
+  padding-block: 0.8rem;
+  background-color: #00474b;
+  border: none;
+  border-radius: 0.5rem;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+  flex: 0 0 30%;
+  max-width: 30%;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.6rem;
+  letter-spacing: 0;
+}
+.tip-button--custom {
+  background-color: #f3f9fa;
+  color: #547878;
+}
+.tip-button--custom::-moz-placeholder {
+  color: #7f9d9f;
+  opacity: 1;
+}
+.tip-button--custom::placeholder {
+  color: #7f9d9f;
+  opacity: 1;
+}
+
 .app {
   margin-inline: auto;
   max-width: 92rem;
@@ -215,9 +254,14 @@ a:hover {
   padding-inline: 4rem;
   box-shadow: 0px 3.2rem 4.3rem rgba(79, 166, 175, 0.200735);
   width: 100%;
+  gap: 4.8rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+.app__content > * {
+  flex: 1 1 47%;
+  max-width: 47%;
 }/*# sourceMappingURL=main.css.map */
