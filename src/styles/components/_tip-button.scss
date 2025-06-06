@@ -28,6 +28,13 @@
   transition: background-color 0.2s ease, color 0.2s ease;
   @include text-preset-3;
 
+  &:not(.tip-button--custom):hover,
+  &:not(.tip-button--custom):focus,
+  &:not(.tip-button--custom):active {
+    background-color: $color-primary;
+    color: $color-primary-deep;
+  }
+
   &--custom {
     background-color: $color-bg-muted;
     color: $grey-550;
