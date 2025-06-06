@@ -55,3 +55,31 @@
   line-height: $line-height-xs;
   letter-spacing: $letter-spacing-none;
 }
+
+@mixin btn-standard {
+  border: none;
+  border-radius: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+@mixin tip-button {
+  padding-inline: $spacing-200;
+  padding-block: $spacing-100;
+  background-color: $color-primary-deep;
+  color: $white;
+  @include btn-standard;
+  @include text-preset-3;
+}
+
+@mixin reset-button {
+  padding-block: 0.9rem;
+  padding-inline: 3.85rem;
+  text-transform: uppercase;
+  background-color: $color-primary;
+  color: $color-primary-deep;
+
+  @include btn-standard;
+  @include text-preset-4;
+}

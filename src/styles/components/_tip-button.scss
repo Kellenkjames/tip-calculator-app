@@ -15,18 +15,9 @@
 }
 
 .tip-button {
-  padding-inline: $spacing-200;
-  padding-block: $spacing-100;
-  background-color: $color-primary-deep;
-  border: none;
-  border-radius: 0.5rem;
-  text-align: center;
-  color: $white;
-  cursor: pointer;
   flex: 0 0 30%;
   max-width: 30%;
-  transition: background-color 0.2s ease, color 0.2s ease;
-  @include text-preset-3;
+  @include tip-button;
 
   &:not(.tip-button--custom):hover,
   &:not(.tip-button--custom):focus,

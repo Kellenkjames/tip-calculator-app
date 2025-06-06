@@ -11,6 +11,7 @@
 
 .app {
   margin-inline: auto;
+  margin-bottom: $spacing-1500;
   max-width: 92rem;
   @include flex-column(center, center);
 
@@ -42,6 +43,7 @@
     width: 100%;
     gap: $spacing-600;
     @include flex-space-between-center;
+    align-items: stretch;
 
     > * {
       flex: 1 1 47%;

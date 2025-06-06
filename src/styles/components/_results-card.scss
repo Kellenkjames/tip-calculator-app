@@ -1,0 +1,66 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/utilities' as *;
+@use '../abstracts/mixins' as *;
+
+// ---------------------------------------------
+// COMPONENT: TIP CARD
+// ---------------------------------------------
+// Styles for the output card showing tip amount and total.
+// Includes result values, labels, and reset button states.
+// ---------------------------------------------
+
+.results-card {
+  background-color: $color-primary-deep;
+  border-radius: 1.5rem;
+  padding-inline: $spacing-400;
+  padding-block: $spacing-300;
+  @include flex-column(start, start);
+  gap: 12.8rem;
+
+  &__amounts {
+    width: 100%;
+    gap: $spacing-300;
+    @include flex-column(center, start);
+  }
+
+  &__line-item {
+    width: 100%;
+    gap: 9.6rem;
+    @include flex-row(space-between, center, nowrap);
+  }
+
+  &__label {
+    @include flex-column;
+  }
+
+  &__title,
+  &__subtitle {
+    display: inline-block;
+    width: 100%;
+  }
+
+  &__title {
+    color: $white;
+    @include text-preset-5;
+  }
+
+  &__subtitle {
+    color: $color-text-muted;
+  }
+
+  &__value {
+    color: $color-primary;
+    @include text-preset-1;
+  }
+
+  &__reset-btn {
+    width: 100%;
+    @include reset-button;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $color-focus;
+    }
+  }
+}

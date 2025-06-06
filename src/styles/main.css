@@ -190,16 +190,16 @@ a:hover {
 }
 
 .tip-button {
+  flex: 0 0 30%;
+  max-width: 30%;
   padding-inline: 1.6rem;
   padding-block: 0.8rem;
   background-color: #00474b;
+  color: #ffffff;
   border: none;
   border-radius: 0.5rem;
   text-align: center;
-  color: #ffffff;
   cursor: pointer;
-  flex: 0 0 30%;
-  max-width: 30%;
   transition: background-color 0.2s ease, color 0.2s ease;
   font-weight: 700;
   font-size: 2.4rem;
@@ -223,8 +223,88 @@ a:hover {
   opacity: 1;
 }
 
+.results-card {
+  background-color: #00474b;
+  border-radius: 1.5rem;
+  padding-inline: 3.2rem;
+  padding-block: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 12.8rem;
+}
+.results-card__amounts {
+  width: 100%;
+  gap: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+.results-card__line-item {
+  width: 100%;
+  gap: 9.6rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.results-card__label {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.results-card__title, .results-card__subtitle {
+  display: inline-block;
+  width: 100%;
+}
+.results-card__title {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  letter-spacing: 0;
+}
+.results-card__subtitle {
+  color: #7f9d9f;
+}
+.results-card__value {
+  color: #26c2ae;
+  font-weight: 700;
+  font-size: 4.8rem;
+  line-height: 7.1rem;
+  letter-spacing: -0.1rem;
+}
+.results-card__reset-btn {
+  width: 100%;
+  padding-block: 0.9rem;
+  padding-inline: 3.85rem;
+  text-transform: uppercase;
+  background-color: #26c2ae;
+  color: #00474b;
+  border: none;
+  border-radius: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 3rem;
+  letter-spacing: 0;
+}
+.results-card__reset-btn:hover, .results-card__reset-btn:focus, .results-card__reset-btn:active {
+  background-color: #9fe8df;
+}
+
 .app {
   margin-inline: auto;
+  margin-bottom: 12rem;
   max-width: 92rem;
   display: flex;
   flex-direction: column;
@@ -264,6 +344,7 @@ a:hover {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  align-items: stretch;
 }
 .app__content > * {
   flex: 1 1 47%;
