@@ -11,7 +11,7 @@
 
 .tip-buttons {
   gap: $spacing-200;
-  @include flex-row(start);
+  @include flex-row(start, center, wrap);
 }
 
 .tip-button {
@@ -34,5 +34,10 @@
       color: $grey-400;
       opacity: 1;
     }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    flex: 0 0 45%;
+    max-width: 45%;
   }
 }

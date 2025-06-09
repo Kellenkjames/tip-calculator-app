@@ -12,12 +12,13 @@
 .app {
   margin-inline: auto;
   margin-bottom: $spacing-1500;
+  padding-inline: $spacing-200;
   max-width: 92rem;
   @include flex-column(center, center);
 
   &__header {
     text-align: center;
-    margin-block: $space-1630 $space-1100;
+    margin-block: $space-1630 $spacing-600;
     width: 100%;
   }
 
@@ -43,11 +44,23 @@
     width: 100%;
     gap: $spacing-600;
     @include flex-space-between-center;
+    flex-wrap: nowrap;
     align-items: stretch;
 
     > * {
       flex: 1 1 47%;
       max-width: 47%;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .app__content {
+    flex-direction: column;
+
+    > * {
+      flex: 1 1 100%;
+      max-width: 100%;
     }
   }
 }
