@@ -232,12 +232,6 @@ a:hover {
     max-width: 45%;
   }
 }
-@media (min-width: 500px) {
-  .tip-button {
-    flex: 0 0 30%;
-    max-width: 30%;
-  }
-}
 @media (max-width: 385px) {
   .tip-button {
     flex: 0 0 100%;
