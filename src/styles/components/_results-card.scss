@@ -25,8 +25,14 @@
 
   &__line-item {
     width: 100%;
-    gap: 9.6rem;
+    gap: clamp(2rem, 5vw, 9.6rem); // min: 2rem, preferred: 5vw, max: 9.6rem
     @include flex-row(space-between, center, nowrap);
+
+    @media (max-width: $breakpoint-xs) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-100;
+    }
   }
 
   &__label {
@@ -51,6 +57,11 @@
   &__value {
     color: $color-primary;
     @include text-preset-1;
+    font-size: clamp(2.4rem, 5vw, 3.2rem);
+
+    @media (max-width: $breakpoint-sm) {
+      align-self: flex-end;
+    }
   }
 
   &__reset-btn {
@@ -62,5 +73,9 @@
     &:active {
       background-color: $color-focus;
     }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    gap: $spacing-200;
   }
 }

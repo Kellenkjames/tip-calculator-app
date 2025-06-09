@@ -37,7 +37,7 @@
     }
   }
 
-  @media (max-width: $breakpoint-md) {
+  @media (max-width: $breakpoint-sm) {
     flex: 0 0 45%;
     max-width: 45%;
   }

@@ -223,13 +223,13 @@ a:hover {
   color: #7f9d9f;
   opacity: 1;
 }
-@media (max-width: 800px) {
+@media (max-width: 500px) {
   .tip-button {
     flex: 0 0 45%;
     max-width: 45%;
   }
 }
-@media (max-width: 300px) {
+@media (max-width: 385px) {
   .tip-button {
     flex: 0 0 100%;
     max-width: 100%;
@@ -259,12 +259,19 @@ a:hover {
 }
 .results-card__line-item {
   width: 100%;
-  gap: 9.6rem;
+  gap: clamp(2rem, 5vw, 9.6rem);
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+}
+@media (max-width: 385px) {
+  .results-card__line-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
 }
 .results-card__label {
   display: flex;
@@ -293,6 +300,12 @@ a:hover {
   font-size: 4.8rem;
   line-height: 7.1rem;
   letter-spacing: -0.1rem;
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+}
+@media (max-width: 500px) {
+  .results-card__value {
+    align-self: flex-end;
+  }
 }
 .results-card__reset-btn {
   width: 100%;
@@ -314,11 +327,16 @@ a:hover {
 .results-card__reset-btn:hover, .results-card__reset-btn:focus, .results-card__reset-btn:active {
   background-color: #9fe8df;
 }
+@media (max-width: 800px) {
+  .results-card {
+    gap: 1.6rem;
+  }
+}
 
 .app {
   margin-inline: auto;
   margin-bottom: 12rem;
-  padding-inline: 1.6rem;
+  padding-inline: 3.2rem;
   max-width: 92rem;
   display: flex;
   flex-direction: column;
