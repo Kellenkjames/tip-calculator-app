@@ -10,8 +10,9 @@
 // ---------------------------------------------
 
 .tip-buttons {
+  width: 100%;
   gap: $spacing-200;
-  @include flex-row(start, center, wrap);
+  @include flex-space-between-center;
 }
 
 .tip-button {
@@ -39,5 +40,10 @@
   @media (max-width: $breakpoint-md) {
     flex: 0 0 45%;
     max-width: 45%;
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }

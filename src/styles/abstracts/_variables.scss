@@ -132,10 +132,12 @@ $breakpoint-xl: 1440px;
 $breakpoint-lg: 1024px;
 $breakpoint-md: 800px;
 $breakpoint-sm: 450px;
+$breakpoint-xs: 300px;
 
 $breakpoints: (
   xl: $breakpoint-xl,
   lg: $breakpoint-lg,
   md: $breakpoint-md,
   sm: $breakpoint-sm,
+  xs: $breakpoint-xs,
 );
