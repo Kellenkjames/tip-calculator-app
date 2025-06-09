@@ -17,6 +17,14 @@
   @include flex-column(start, start);
   gap: 12.8rem;
 
+  @media (max-width: $breakpoint-md) {
+    gap: $spacing-200;
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    padding-inline: $spacing-200;
+  }
+
   &__amounts {
     width: 100%;
     gap: $spacing-300;
@@ -73,9 +81,5 @@
     &:active {
       background-color: $color-focus;
     }
-  }
-
-  @media (max-width: $breakpoint-md) {
-    gap: $spacing-200;
   }
 }
