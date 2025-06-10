@@ -30,6 +30,44 @@ const setInput = (field, rawValue) => {
   calculateResults();
 };
 
-setInput('billAmount', '42.50');
-setInput('tipPercentage', '15');
-setInput('numberOfPeople', '3');
+/**
+ * Rounds a number to two decimal places.
+ *
+ * @param {num} num - The number to round.
+ * @returns {number} The rounded number.
+ */
+const round = num => Math.round(num * 100) / 100;
+
+/**
+ * Checks if a value is a valid number.
+ *
+ * @param {*} val val - The value to validate.
+ * @returns {boolean} True if the value is a valid number, false otherwise.
+ */
+const isValid = val => typeof val === 'number' && !isNaN(val);
+
+/**
+ * Calculates the tip and total per person using current state inputs.
+ * Updates the state with the computed results.
+ */
+const calculateResults = () => {
+  const { billAmount, tipPercentage, numberOfPeople } = state.inputs;
+
+  if (
+    !isValid(billAmount) ||
+    !isValid(tipPercentage) ||
+    !isValid(numberOfPeople) ||
+    numberOfPeople <= 0
+  ) {
+    state.results.tipAmountPerPerson = '';
+    state.results.totalPerPerson = '';
+    return;
+  }
+
+  const tipAmount = billAmount * (tipPercentage / 100);
+  const tipAmountPerPerson = tipAmount / numberOfPeople;
+  const totalPerPerson = (billAmount + tipAmount) / numberOfPeople;
+
+  state.results.tipAmountPerPerson = round(tipAmountPerPerson);
+  state.results.totalPerPerson = round(totalPerPerson);
+};
