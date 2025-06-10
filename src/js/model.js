@@ -7,8 +7,8 @@ const state = {
     numberOfPeople: '',
   },
   results: {
-    tipAmountPerPerson: '',
-    totalPerPerson: '',
+    tipAmountPerPerson: '0.00',
+    totalPerPerson: '0.00',
   },
 };
 
@@ -71,3 +71,5 @@ const calculateResults = () => {
   state.results.tipAmountPerPerson = round(tipAmountPerPerson);
   state.results.totalPerPerson = round(totalPerPerson);
 };
+
+export { setInput };

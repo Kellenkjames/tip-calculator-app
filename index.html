@@ -39,6 +39,7 @@
                   class="form__input"
                   inputmode="decimal"
                   placeholder="0"
+                  data-field="billAmount"
                 />
               </div>
             </div>
@@ -51,11 +52,46 @@
                 role="group"
                 aria-labelledby="tip-custom-label"
               >
-                <button type="button" class="tip-button">5%</button>
-                <button type="button" class="tip-button">10%</button>
-                <button type="button" class="tip-button">15%</button>
-                <button type="button" class="tip-button">25%</button>
-                <button type="button" class="tip-button">50%</button>
+                <button
+                  type="button"
+                  class="tip-button"
+                  data-field="tipPercentage"
+                  data-value="5"
+                >
+                  5%
+                </button>
+                <button
+                  type="button"
+                  class="tip-button"
+                  data-field="tipPercentage"
+                  data-value="10"
+                >
+                  10%
+                </button>
+                <button
+                  type="button"
+                  class="tip-button"
+                  data-field="tipPercentage"
+                  data-value="15"
+                >
+                  15%
+                </button>
+                <button
+                  type="button"
+                  class="tip-button"
+                  data-field="tipPercentage"
+                  data-value="25"
+                >
+                  25%
+                </button>
+                <button
+                  type="button"
+                  class="tip-button"
+                  data-field="tipPercentage"
+                  data-value="50"
+                >
+                  50%
+                </button>
                 <input
                   type="text"
                   id="tip-custom"
@@ -78,6 +114,7 @@
                   class="form__input"
                   inputmode="decimal"
                   placeholder="0"
+                  data-field="numberOfPeople"
                 />
               </div>
             </div>
