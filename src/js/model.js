@@ -12,12 +12,22 @@ const state = {
   },
 };
 
-//* This function is generic - it can update any input field
-const setInput = (field, value) => {
-  // 1. Trim whitespace from value
-  // 2. Convert to number (or set to '' if empty)
-  // 3. Validate that value is a non-negative number
-  // 4. Update state.inputs[field] with sanitized value
+/**
+ * General-purpose setter function for updating any of the three fields in your state’s inputs object:
+ *
+ * @param {string} field string which represents the input field
+ * @param {string} rawValue string which represents the input value
+ */
+const setInput = (field, rawValue) => {
+  const allowedFields = Object.keys(state.inputs);
+  if (!allowedFields.includes(field)) return;
+
+  const sanitizedInput = String(rawValue).trim();
+  const value = sanitizedInput === '' ? '' : parseFloat(sanitizedInput);
+  if (value !== '' && isNaN(value)) return;
+
+  state.inputs[field] = value;
+  calculateResults();
 };
 
 setInput('billAmount', '42.50');
