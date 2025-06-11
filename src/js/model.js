@@ -1,6 +1,6 @@
 // App state + business logic
 
-const state = {
+export const state = {
   inputs: {
     billAmount: '',
     tipPercentage: '',
@@ -18,7 +18,7 @@ const state = {
  * @param {string} field string which represents the input field
  * @param {string} rawValue string which represents the input value
  */
-const setInput = (field, rawValue) => {
+export const setInput = (field, rawValue) => {
   const allowedFields = Object.keys(state.inputs);
   if (!allowedFields.includes(field)) return;
 
@@ -72,4 +72,13 @@ const calculateResults = () => {
   state.results.totalPerPerson = round(totalPerPerson);
 };
 
-export { setInput };
+/**
+ * Reset app state to initial values.
+ */
+export const reset = () => {
+  state.inputs.billAmount = '';
+  state.inputs.tipPercentage = '';
+  state.inputs.numberOfPeople = '';
+  state.results.tipAmountPerPerson = '';
+  state.results.totalPerPerson = '';
+};

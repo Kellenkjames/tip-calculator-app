@@ -12,6 +12,7 @@ const handleInputChange = e => {
   const value = e.target.dataset.value ?? e.target.value;
 
   if (!field) return;
+
   model.setInput(field, value);
   view.render(model.state);
 };
@@ -21,7 +22,6 @@ const handleInputChange = e => {
  * Resets state and DOM to initial values.
  */
 const handleReset = () => {
-  // TODO: Implement model.reset() and view.reset()
   console.log('Reset clicked');
 };
 

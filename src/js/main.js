@@ -1,1 +1,1 @@
-// Entry point
+import './controller.js';
