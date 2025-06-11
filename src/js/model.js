@@ -59,8 +59,8 @@ const calculateResults = () => {
     !isValid(numberOfPeople) ||
     numberOfPeople <= 0
   ) {
-    state.results.tipAmountPerPerson = '';
-    state.results.totalPerPerson = '';
+    state.results.tipAmountPerPerson = '0.00';
+    state.results.totalPerPerson = '0.00';
     return;
   }
 
