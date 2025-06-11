@@ -18,10 +18,13 @@
     @include flex-column(center, start);
   }
 
-  &__label {
-    display: block;
+  &__label__wrapper {
+    @include flex-row(between, center, nowrap);
     width: 100%;
     margin-bottom: $spacing-100;
+  }
+
+  &__label {
     color: $color-text-base;
     @include text-preset-5;
   }
@@ -62,5 +65,19 @@
     &--people::before {
       background-image: url('/src/assets/images/icon-person.svg');
     }
+  }
+
+  &__error {
+    @include text-preset-5;
+    color: $orange-400;
+    visibility: hidden;
+  }
+
+  &__group.has-error .form__input-wrapper--people {
+    border: 2px solid $orange-400;
+  }
+
+  .form__group.has-error .form__error {
+    visibility: visible;
   }
 }

@@ -106,7 +106,12 @@
 
             <!-- Number of People -->
             <div class="form__group">
-              <label for="people" class="form__label">Number of People</label>
+              <div class="form__label__wrapper">
+                <label for="people" class="form__label">Number of People</label>
+                <span class="form__error" id="people-error" aria-live="polite"
+                  >Can't be zero</span
+                >
+              </div>
               <div class="form__input-wrapper form__input-wrapper--people">
                 <input
                   type="number"
@@ -116,7 +121,7 @@
                   inputmode="decimal"
                   step="1"
                   min="1"
-                  placeholder="0"
+                  placeholder="2"
                   data-field="numberOfPeople"
                 />
               </div>

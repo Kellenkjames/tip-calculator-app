@@ -133,10 +133,16 @@ a:hover {
   justify-content: center;
   align-items: flex-start;
 }
-.form__label {
-  display: block;
+.form__label__wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   margin-bottom: 0.8rem;
+}
+.form__label {
   color: #5e7a7d;
   font-weight: 700;
   font-size: 1.6rem;
@@ -178,6 +184,20 @@ a:hover {
 }
 .form__input-wrapper--people::before {
   background-image: url("/src/assets/images/icon-person.svg");
+}
+.form__error {
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  letter-spacing: 0;
+  color: #e17052;
+  visibility: hidden;
+}
+.form__group.has-error .form__input-wrapper--people {
+  border: 2px solid #e17052;
+}
+.form .form__group.has-error .form__error {
+  visibility: visible;
 }
 
 .tip-buttons {
