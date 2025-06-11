@@ -8,7 +8,7 @@ import * as view from './view.js';
  * @param {Event} e - Input or click event
  */
 const handleInputChange = e => {
-  const field = e.target.dataset.field;
+  let field = e.target.dataset.field;
   const value = e.target.dataset.value ?? e.target.value;
 
   if (!field) return;
