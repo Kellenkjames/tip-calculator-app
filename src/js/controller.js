@@ -22,7 +22,8 @@ const handleInputChange = e => {
  * Resets state and DOM to initial values.
  */
 const handleReset = () => {
-  console.log('Reset clicked');
+  model.reset();
+  view.reset();
 };
 
 /**

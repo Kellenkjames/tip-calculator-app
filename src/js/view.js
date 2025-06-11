@@ -3,15 +3,18 @@
  * @param {Object} state - The application state object from model.js
  */
 export const render = state => {
-  console.log(`[DEBUG] render called with:`, state);
-
   const tipEl = document.querySelector('.results-card__value--tip');
   const totalEl = document.querySelector('.results-card__value--total');
 
-  tipEl.textContent = state.results.tipAmountPerPerson;
-  totalEl.textContent = state.results.totalPerPerson;
+  const { tipAmountPerPerson, totalPerPerson } = state.results;
+
+  tipEl.textContent = formatCurrency(tipAmountPerPerson);
+  totalEl.textContent = formatCurrency(totalPerPerson);
 };
 
+/**
+ * Resets the input fields, tip buttons, and result display in the UI.
+ */
 export const reset = () => {
   // 1. Clear input fields
   document.querySelectorAll('[data-field]').forEach(input => {
@@ -31,11 +34,9 @@ export const reset = () => {
 };
 
 /**
- * Optional formatting helper to ensure consistent display (can be reused later)
+ * Formatting helper to ensure consistent display (can be reused later)
  * @param {number|string} value
  * @returns {string}
  */
-const formatCurrency = value => {
-  if (value === '' || typeof value !== 'number') return '$0.00';
-  return `$${value.toFixed(2)}`;
-};
+const formatCurrency = val =>
+  val === '' ? '$0.00' : `$${parseFloat(val).toFixed(2)}`;
