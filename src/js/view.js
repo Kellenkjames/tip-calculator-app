@@ -33,6 +33,21 @@ export const reset = () => {
   totalEl.textContent = '$0.00';
 };
 
+export const toggleError = hasError => {
+  const input = document.querySelector('[data-field="numberOfPeople"]');
+  const group = input.closest('.form__group'); // ← Traverse up to the parent group
+
+  if (!group) return;
+
+  if (hasError) {
+    group.classList.add('has-error');
+    input.setAttribute('aria-invalid', 'true');
+  } else {
+    group.classList.remove('has-error');
+    input.removeAttribute('aria-invalid');
+  }
+};
+
 /**
  * Formatting helper to ensure consistent display (can be reused later)
  * @param {number|string} value

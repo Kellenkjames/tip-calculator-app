@@ -193,11 +193,11 @@ a:hover {
   color: #e17052;
   visibility: hidden;
 }
-.form__group.has-error .form__input-wrapper--people {
-  border: 2px solid #e17052;
-}
 .form .form__group.has-error .form__error {
   visibility: visible;
+}
+.form .form__group.has-error .form__input-wrapper--people {
+  border: 2px solid #e17052;
 }
 
 .tip-buttons {
@@ -367,7 +367,7 @@ a:hover {
   margin-inline: auto;
   margin-bottom: 12rem;
   padding-inline: clamp(1.6rem, 4vw, 4rem);
-  max-width: 92rem;
+  max-width: 100rem;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;

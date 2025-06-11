@@ -12,9 +12,17 @@ const handleInputChange = e => {
   const value = e.target.dataset.value ?? e.target.value;
 
   if (!field) return;
+  33;
 
   model.setInput(field, value);
   view.render(model.state);
+
+  // Error toggle logic for numberOfPeople
+  if (field === 'numberOfPeople') {
+    const num = parseFloat(value);
+    const hasError = num === 0;
+    view.toggleError(hasError);
+  }
 };
 
 /**

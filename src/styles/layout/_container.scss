@@ -13,7 +13,7 @@
   margin-inline: auto;
   margin-bottom: $spacing-1500;
   padding-inline: clamp(1.6rem, 4vw, 4rem); // min 16px, ideal 4vw, max 40px
-  max-width: 92rem;
+  max-width: 100rem;
   @include flex-column(center, center);
 
   &__header {

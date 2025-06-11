@@ -73,11 +73,11 @@
     visibility: hidden;
   }
 
-  &__group.has-error .form__input-wrapper--people {
-    border: 2px solid $orange-400;
-  }
-
   .form__group.has-error .form__error {
     visibility: visible;
+  }
+
+  .form__group.has-error .form__input-wrapper--people {
+    border: 2px solid $orange-400;
   }
 }
