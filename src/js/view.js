@@ -1,65 +1,119 @@
+// view.js
+
+// ==========================
+// 🔧 DOM SELECTORS
+// ==========================
+const selectors = {
+  app: document.querySelector('.app'),
+  inputs: document.querySelectorAll('[data-field]'),
+  tipButtons: document.querySelectorAll('.tip-button'),
+  tipValue: document.querySelector('.results-card__value--tip'),
+  totalValue: document.querySelector('.results-card__value--total'),
+  customTipInput: document.querySelector(
+    '[data-field="tipPercentage"][type="number"]'
+  ),
+  numberOfPeopleInput: document.querySelector('[data-field="numberOfPeople"]'),
+};
+
+// ==========================
+// 🎯 CORE RENDER
+// ==========================
+
 /**
  * Renders the results section using the current state.
- * @param {Object} state - The application state object from model.js
+ * @param {Object} state - The application state from model.js
  */
 export const render = state => {
-  const tipEl = document.querySelector('.results-card__value--tip');
-  const totalEl = document.querySelector('.results-card__value--total');
-
   const { tipAmountPerPerson, totalPerPerson } = state.results;
-
-  tipEl.textContent = formatCurrency(tipAmountPerPerson);
-  totalEl.textContent = formatCurrency(totalPerPerson);
-};
-
-export const toggleEmptyState = isEmpty => {
-  const app = document.querySelector('.app');
-  app.classList.toggle('app--empty', isEmpty);
+  selectors.tipValue.textContent = formatCurrency(tipAmountPerPerson);
+  selectors.totalValue.textContent = formatCurrency(totalPerPerson);
 };
 
 /**
- * Resets the input fields, tip buttons, and result display in the UI.
+ * Applies fade + scale animation to results when values change.
+ */
+export const fadeAnimation = () => {
+  [selectors.tipValue, selectors.totalValue].forEach(el => {
+    el.classList.add('animate');
+    setTimeout(() => el.classList.remove('animate'), 250);
+  });
+};
+
+// ==========================
+// ♻️ STATE RESET
+// ==========================
+
+/**
+ * Resets all inputs, tip buttons, results, and error/empty states.
  */
 export const reset = () => {
-  // 1. Clear input fields
-  document.querySelectorAll('[data-field]').forEach(input => {
+  selectors.inputs.forEach(input => {
     if (input.tagName === 'INPUT') input.value = '';
   });
 
-  // 2. Clear selected tip buttons (remove active class)
-  document.querySelectorAll('.tip-button').forEach(btn => {
-    btn.classList.remove('active');
-  });
+  selectors.tipButtons.forEach(btn => btn.classList.remove('active'));
 
-  // 3. Reset result display
-  const tipEl = document.querySelector('.results-card__value--tip');
-  const totalEl = document.querySelector('.results-card__value--total');
-  tipEl.textContent = '$0.00';
-  totalEl.textContent = '$0.00';
+  selectors.tipValue.textContent = '$0.00';
+  selectors.totalValue.textContent = '$0.00';
 
-  // 4. Reset empty styles
-  const app = document.querySelector('.app');
-  app.classList.add('app--empty');
+  toggleEmptyState(true);
+  toggleError(false);
 };
 
-export const toggleError = hasError => {
-  const input = document.querySelector('[data-field="numberOfPeople"]');
-  const group = input.closest('.form__group'); // ← Traverse up to the parent group
+// ==========================
+// 🎛️ TOGGLE HANDLERS
+// ==========================
 
-  if (!group) return;
-
-  if (hasError) {
-    group.classList.add('has-error');
-    input.setAttribute('aria-invalid', 'true');
-  } else {
-    group.classList.remove('has-error');
-    input.removeAttribute('aria-invalid');
-  }
+/**
+ * Toggles the empty state UI class.
+ * @param {boolean} isEmpty
+ */
+export const toggleEmptyState = isEmpty => {
+  selectors.app.classList.toggle('app--empty', isEmpty);
 };
 
 /**
- * Formatting helper to ensure consistent display (can be reused later)
- * @param {number|string} value
+ * Shows or hides the error state for number of people input.
+ * @param {boolean} hasError
+ */
+export const toggleError = hasError => {
+  const group = selectors.numberOfPeopleInput.closest('.form__group');
+  if (!group) return;
+
+  group.classList.toggle('has-error', hasError);
+  selectors.numberOfPeopleInput.setAttribute('aria-invalid', hasError);
+  if (!hasError) selectors.numberOfPeopleInput.removeAttribute('aria-invalid');
+};
+
+// ==========================
+// 💡 TIP BUTTON INTERACTION
+// ==========================
+
+/**
+ * Ensures only one preset tip button is active at a time.
+ * Clears custom input when a preset is selected.
+ * @param {Event} e
+ */
+export const handleTipPercentage = e => {
+  const isPreset =
+    e.target.matches('.tip-button') &&
+    e.target.dataset.field === 'tipPercentage';
+
+  if (!isPreset) return;
+
+  if (selectors.customTipInput) selectors.customTipInput.value = '';
+
+  selectors.tipButtons.forEach(btn => btn.classList.remove('active'));
+  e.target.classList.add('active');
+};
+
+// ==========================
+// 🔢 HELPERS
+// ==========================
+
+/**
+ * Formats a number to currency.
+ * @param {number|string} val
  * @returns {string}
  */
 const formatCurrency = val =>

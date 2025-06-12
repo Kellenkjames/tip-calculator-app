@@ -67,6 +67,15 @@
     @include text-preset-1;
     font-size: clamp(2.4rem, 5vw, 3.2rem);
 
+    transition: all 0.25s ease;
+    transform: scale(1);
+    opacity: 1;
+
+    &.animate {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+
     @media (max-width: $breakpoint-sm) {
       align-self: flex-end;
     }

@@ -25,6 +25,12 @@ const handleInputChange = e => {
     const hasError = num === 0;
     view.toggleError(hasError);
   }
+
+  // Handle tip percentage feedback
+  view.handleTipPercentage(e);
+
+  // Fade animation for results values
+  view.fadeAnimation();
 };
 
 /**

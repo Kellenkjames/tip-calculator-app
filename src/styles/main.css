@@ -334,6 +334,13 @@ a:hover {
   line-height: 7.1rem;
   letter-spacing: -0.1rem;
   font-size: clamp(2.4rem, 5vw, 3.2rem);
+  transition: all 0.25s ease;
+  transform: scale(1);
+  opacity: 1;
+}
+.results-card__value.animate {
+  transform: scale(1.05);
+  opacity: 0.8;
 }
 @media (max-width: 500px) {
   .results-card__value {
