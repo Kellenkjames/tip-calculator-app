@@ -183,10 +183,10 @@ a:hover {
   pointer-events: none;
 }
 .form__input-wrapper--bill::before {
-  background-image: url("../../assets/images/icon-dollar.svg");
+  background-image: url("../assets/images/icon-dollar.svg");
 }
 .form__input-wrapper--people::before {
-  background-image: url("../../assets/images/icon-person.svg");
+  background-image: url("../assets/images/icon-person.svg");
 }
 .form__error {
   font-weight: 700;
