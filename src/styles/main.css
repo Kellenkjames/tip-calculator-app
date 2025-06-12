@@ -163,6 +163,9 @@ a:hover {
   line-height: 3.6rem;
   letter-spacing: 0;
 }
+.form__input:focus {
+  outline: none;
+}
 .form__input-wrapper {
   position: relative;
   width: 100%;
@@ -196,7 +199,7 @@ a:hover {
 .form .form__group.has-error .form__error {
   visibility: visible;
 }
-.form .form__group.has-error .form__input-wrapper--people {
+.form .form__group.has-error .form__input-wrapper--people .form__input {
   border: 2px solid #e17052;
 }
 
@@ -229,7 +232,7 @@ a:hover {
   line-height: 3.6rem;
   letter-spacing: 0;
 }
-.tip-button:not(.tip-button--custom):hover, .tip-button:not(.tip-button--custom):focus, .tip-button:not(.tip-button--custom):active {
+.tip-button.active, .tip-button:not(.tip-button--custom):hover, .tip-button:not(.tip-button--custom):focus, .tip-button:not(.tip-button--custom):active {
   background-color: #26c2ae;
   color: #00474b;
 }

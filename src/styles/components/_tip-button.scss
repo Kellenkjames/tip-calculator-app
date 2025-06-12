@@ -20,6 +20,7 @@
   max-width: 30%;
   @include tip-button;
 
+  &.active,
   &:not(.tip-button--custom):hover,
   &:not(.tip-button--custom):focus,
   &:not(.tip-button--custom):active {

@@ -97,7 +97,8 @@ export const toggleError = hasError => {
 export const handleTipPercentage = e => {
   const isPreset =
     e.target.matches('.tip-button') &&
-    e.target.dataset.field === 'tipPercentage';
+    e.target.dataset.field === 'tipPercentage' &&
+    e.target.type !== 'number';
 
   if (!isPreset) return;
 
