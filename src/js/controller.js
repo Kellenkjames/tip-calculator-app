@@ -1,85 +1,109 @@
+// controller.js
+
 import * as model from './model.js';
 import * as view from './view.js';
 
-/**
- * Handles input changes across all fields.
- * Retrieves field name and value, updates state via model, and triggers DOM re-render.
- *
- * @param {Event} e - Input or click event
- */
-const handleInputChange = e => {
-  let field = e.target.dataset.field;
-  const value = e.target.dataset.value ?? e.target.value;
-
-  if (!field) return;
-
-  // Determine if all inputs are empty (initial)
-  view.toggleEmptyState(isEmptyState());
-
-  model.setInput(field, value);
-  view.render(model.state);
-
-  // Error toggle logic for numberOfPeople
-  if (field === 'numberOfPeople') {
-    const num = parseFloat(value);
-    const hasError = num === 0;
-    view.toggleError(hasError);
-  }
-
-  // Handle tip percentage feedback
-  view.handleTipPercentage(e);
-
-  // Fade animation for results values
-  view.fadeAnimation();
-};
-
-/**
- * Handles reset logic.
- * Resets state and DOM to initial values.
- */
-const handleReset = () => {
-  model.reset();
-  view.reset();
-};
-
-/**
- * Determine if all inputs are empty
- * Initial state of the application
- * @returns {boolean} true or false
- */
-const isEmptyState = () => {
-  const { bill, tipPercentage, numberOfPeople } = model.state.inputs;
-  return !bill && !tipPercentage && !numberOfPeople;
-};
+// ==========================
+// 🚀 INIT
+// ==========================
 
 /**
  * Initializes the application:
- * - Adds event listeners via delegation
+ * - Attaches input and click event delegation
  * - Sets up reset functionality
- * - Renders initial state
+ * - Renders the initial view state
  */
 const init = () => {
   const form = document.querySelector('.form');
-
-  form.addEventListener('input', e => {
-    if (
-      e.target.classList.contains('form__input') ||
-      e.target.classList.contains('tip-button--custom')
-    ) {
-      handleInputChange(e);
-    }
-  });
-
-  form.addEventListener('click', e => {
-    if (e.target.classList.contains('tip-button')) {
-      handleInputChange(e);
-    }
-  });
-
   const resetBtn = document.querySelector('.results-card__reset-btn');
+
+  form.addEventListener('input', onFormInput);
+  form.addEventListener('click', onFormClick);
   resetBtn.addEventListener('click', handleReset);
 
   view.render(model.state);
 };
 
 init();
+
+// ==========================
+// 🧠 EVENT HANDLERS
+// ==========================
+
+/**
+ * Handles all input-based user interactions.
+ * Delegates changes to model, updates view, handles errors and animation.
+ * @param {Event} e
+ */
+function handleInputChange(e) {
+  const field = e.target.dataset.field;
+  const value = e.target.dataset.value ?? e.target.value;
+
+  if (!field) return;
+
+  model.setInput(field, value);
+  view.render(model.state);
+  view.toggleEmptyState(isEmptyState());
+
+  // Error validation for numberOfPeople
+  if (field === 'numberOfPeople') {
+    const hasError = parseFloat(value) === 0;
+    view.toggleError(hasError);
+  }
+
+  // Visual feedback
+  view.fadeAnimation();
+}
+
+/**
+ * Handles reset logic.
+ * Clears state and resets view to initial empty UI.
+ */
+function handleReset() {
+  model.reset();
+  view.reset();
+}
+
+// ==========================
+// 🧩 DELEGATED LISTENERS
+// ==========================
+
+/**
+ * Handles delegated form input events.
+ * Triggers when user types or uses custom input.
+ */
+function onFormInput(e) {
+  const isInput = e.target.classList.contains('form__input');
+  const isCustomTip = e.target.classList.contains('tip-button--custom');
+
+  if (isInput || isCustomTip) {
+    handleInputChange(e);
+  }
+}
+
+/**
+ * Handles delegated tip percentage clicks.
+ * Ensures preset buttons activate visual state.
+ */
+function onFormClick(e) {
+  const isTipButton = e.target.classList.contains('tip-button');
+
+  if (isTipButton) {
+    view.handleTipPercentage(e);
+    handleInputChange(e); // Updates state based on selected percentage
+  }
+}
+
+// ==========================
+// 🧮 UTILITIES
+// ==========================
+
+/**
+ * Returns true if all user inputs are empty.
+ * Used to toggle UI empty state.
+ * @returns {boolean}
+ */
+function isEmptyState() {
+  const { bill, tipPercentage, numberOfPeople } = model.state.inputs;
+  return !bill && !tipPercentage && !numberOfPeople;
+}
