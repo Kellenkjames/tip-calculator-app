@@ -12,6 +12,11 @@ export const render = state => {
   totalEl.textContent = formatCurrency(totalPerPerson);
 };
 
+export const toggleEmptyState = isEmpty => {
+  const app = document.querySelector('.app');
+  app.classList.toggle('app--empty', isEmpty);
+};
+
 /**
  * Resets the input fields, tip buttons, and result display in the UI.
  */
@@ -31,6 +36,10 @@ export const reset = () => {
   const totalEl = document.querySelector('.results-card__value--total');
   tipEl.textContent = '$0.00';
   totalEl.textContent = '$0.00';
+
+  // 4. Reset empty styles
+  const app = document.querySelector('.app');
+  app.classList.add('app--empty');
 };
 
 export const toggleError = hasError => {

@@ -12,7 +12,9 @@ const handleInputChange = e => {
   const value = e.target.dataset.value ?? e.target.value;
 
   if (!field) return;
-  33;
+
+  // Determine if all inputs are empty (initial)
+  view.toggleEmptyState(isEmptyState());
 
   model.setInput(field, value);
   view.render(model.state);
@@ -32,6 +34,16 @@ const handleInputChange = e => {
 const handleReset = () => {
   model.reset();
   view.reset();
+};
+
+/**
+ * Determine if all inputs are empty
+ * Initial state of the application
+ * @returns {boolean} true or false
+ */
+const isEmptyState = () => {
+  const { bill, tipPercentage, numberOfPeople } = model.state.inputs;
+  return !bill && !tipPercentage && !numberOfPeople;
 };
 
 /**

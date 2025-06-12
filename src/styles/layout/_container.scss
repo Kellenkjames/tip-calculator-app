@@ -16,6 +16,23 @@
   max-width: 100rem;
   @include flex-column(center, center);
 
+  &--empty {
+    .form__input {
+      opacity: 0.8;
+
+      &::placeholder {
+        color: $color-primary-deep;
+      }
+    }
+
+    button[type='reset'] {
+      background-color: $green-800;
+      color: $color-primary-dark;
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
   &__header {
     text-align: center;
     margin-block: $space-1630 $spacing-600;
