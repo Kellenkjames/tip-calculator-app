@@ -1,5 +1,13 @@
-// App state + business logic
+// model.js
 
+// ==========================
+// 🧠 STATE
+// ==========================
+
+/**
+ * Central application state.
+ * Inputs are raw values from the user. Results are calculated per person.
+ */
 export const state = {
   inputs: {
     billAmount: '',
@@ -7,50 +15,60 @@ export const state = {
     numberOfPeople: '',
   },
   results: {
-    tipAmountPerPerson: '0.00',
-    totalPerPerson: '0.00',
+    tipAmountPerPerson: 0,
+    totalPerPerson: 0,
   },
 };
 
+// ==========================
+// 🎯 CORE METHODS
+// ==========================
+
 /**
- * General-purpose setter function for updating any of the three fields in your state’s inputs object:
+ * Sets a user input value into state.
+ * Triggers recalculation of results.
  *
- * @param {string} field string which represents the input field
- * @param {string} rawValue string which represents the input value
+ * @param {string} field - The input field to update
+ * @param {string} rawValue - Raw user-entered value
  */
-export const setInput = (field, rawValue) => {
+export function setInput(field, rawValue) {
   const allowedFields = Object.keys(state.inputs);
   if (!allowedFields.includes(field)) return;
 
-  const sanitizedInput = String(rawValue).trim();
-  const value = sanitizedInput === '' ? '' : parseFloat(sanitizedInput);
+  const sanitized = String(rawValue).trim();
+  const value = sanitized === '' ? '' : parseFloat(sanitized);
+
   if (value !== '' && isNaN(value)) return;
 
   state.inputs[field] = value;
   calculateResults();
-};
+}
 
 /**
- * Rounds a number to two decimal places.
- *
- * @param {num} num - The number to round.
- * @returns {number} The rounded number.
+ * Resets all input and result state to initial defaults.
  */
-const round = num => Math.round(num * 100) / 100;
+export function reset() {
+  state.inputs = {
+    billAmount: '',
+    tipPercentage: '',
+    numberOfPeople: '',
+  };
+
+  state.results = {
+    tipAmountPerPerson: 0,
+    totalPerPerson: 0,
+  };
+}
+
+// ==========================
+// 📊 CALCULATION
+// ==========================
 
 /**
- * Checks if a value is a valid number.
- *
- * @param {*} val val - The value to validate.
- * @returns {boolean} True if the value is a valid number, false otherwise.
+ * Calculates tip and total per person based on current inputs.
+ * Updates the results object in state.
  */
-const isValid = val => typeof val === 'number' && !isNaN(val);
-
-/**
- * Calculates the tip and total per person using current state inputs.
- * Updates the state with the computed results.
- */
-const calculateResults = () => {
+function calculateResults() {
   const { billAmount, tipPercentage, numberOfPeople } = state.inputs;
 
   if (
@@ -59,8 +77,8 @@ const calculateResults = () => {
     !isValid(numberOfPeople) ||
     numberOfPeople <= 0
   ) {
-    state.results.tipAmountPerPerson = '0.00';
-    state.results.totalPerPerson = '0.00';
+    state.results.tipAmountPerPerson = 0;
+    state.results.totalPerPerson = 0;
     return;
   }
 
@@ -70,15 +88,26 @@ const calculateResults = () => {
 
   state.results.tipAmountPerPerson = round(tipAmountPerPerson);
   state.results.totalPerPerson = round(totalPerPerson);
-};
+}
+
+// ==========================
+// 🧩 HELPERS
+// ==========================
 
 /**
- * Reset app state to initial values.
+ * Checks if value is a valid number (not NaN, not empty).
+ * @param {*} val
+ * @returns {boolean}
  */
-export const reset = () => {
-  state.inputs.billAmount = '';
-  state.inputs.tipPercentage = '';
-  state.inputs.numberOfPeople = '';
-  state.results.tipAmountPerPerson = '';
-  state.results.totalPerPerson = '';
-};
+function isValid(val) {
+  return typeof val === 'number' && !isNaN(val);
+}
+
+/**
+ * Rounds a number to two decimal places.
+ * @param {number} num
+ * @returns {number}
+ */
+function round(num) {
+  return Math.round(num * 100) / 100;
+}
