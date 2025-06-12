@@ -63,11 +63,11 @@
     }
 
     &--bill::before {
-      background-image: url('../../assets/images/icon-dollar.svg');
+      background-image: url('/src/assets/images/icon-dollar.svg');
     }
 
     &--people::before {
-      background-image: url('../../assets/images/icon-person.svg');
+      background-image: url('/src/assets/images/icon-person.svg');
     }
   }
 
