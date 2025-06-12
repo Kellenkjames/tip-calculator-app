@@ -35,9 +35,9 @@ A responsive, accessible tip calculator built with semantic HTML, modular SCSS a
 
 ## Screenshots
 
-| Desktop                                                 | Mobile                                                |
-| ------------------------------------------------------- | ----------------------------------------------------- |
-| ![Desktop Screenshot](./assets/screenshots/desktop.png) | ![Mobile Screenshot](./assets/screenshots/mobile.png) |
+| Desktop                                                     | Mobile                                                    |
+| ----------------------------------------------------------- | --------------------------------------------------------- |
+| ![Desktop Screenshot](./src/assets/screenshots/desktop.png) | ![Mobile Screenshot](./src/assets/screenshots/mobile.png) |
 
 ---
 
