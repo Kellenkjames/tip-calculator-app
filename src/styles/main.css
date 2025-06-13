@@ -395,6 +395,7 @@ a:hover {
 }
 .app--empty button[type=reset] {
   background-color: #085c61;
+  color: #ffffff;
   opacity: 0.6;
   cursor: not-allowed;
 }
